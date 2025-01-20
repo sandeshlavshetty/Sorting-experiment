@@ -15,9 +15,9 @@ This program generates random numbers and writes them to separate text files.
 - **File Details**:
   - `file1.txt`: Contains 1000 random numbers ranging from 1 to 100.
   - `file2.txt`: Contains 2000 random numbers.
-  - `file3.txt`: Contains 2000 random numbers.
-  - `file4.txt`: Contains 2000 random numbers.
-  - `file5.txt`: Contains 2000 random numbers.
+  - `file3.txt`: Contains 10000 random numbers.
+  - `file4.txt`: Contains 15000 random numbers.
+  - `file5.txt`: Contains 20000 random numbers.
 
 - **How it works**:
   - Prompts the user for the number of random integers for each file.
