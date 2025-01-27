@@ -4,3 +4,68 @@ Exp2,16,10,5
 Exp3,120,86,203
 Exp4,525,171,117
 Exp5,1220,380,271
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,9,7,3,0
+Exp2,48,11,10,0
+Exp3,183,86,55,0
+Exp4,823,284,211,0
+Exp5,2147,760,831,1
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,8,3,2,0
+Exp2,46,20,16,0
+Exp3,226,85,122,0
+Exp4,918,305,240,0
+Exp5,1565,678,414,1
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,6,2,1,0
+Exp2,64,27,12,0
+Exp3,196,126,60,0
+Exp4,731,253,186,0
+Exp5,1677,848,527,2
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,4,2,1,1725
+Exp2,50,17,12,1620
+Exp3,198,95,61,4859
+Exp4,899,316,209,9107
+Exp5,1838,630,486,14486
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,3,1,1,2292
+Exp2,30,14,8,5577
+Exp3,199,61,46,9165
+Exp4,728,282,200,24737
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,4,1,1,0
+Exp2,22,16,9,0
+Exp3,173,82,60,1
+Exp4,662,228,161,3
+Exp5,1286,445,297,3
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,3,1,0,0,0
+Exp2,19,10,6,0,2
+Exp3,158,52,53,1,16
+Exp4,480,242,112,3,87
+Exp5,1253,363,288,3,114
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,3,1,0,0,0
+Exp2,26,11,5,0,2
+Exp3,122,45,29,1,14
+Exp4,572,194,135,2,98
+Exp5,1499,389,268,3,120
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,3,1,1,0,0
+Exp2,32,15,11,0,0
+Exp3,183,79,43,1,1
+Exp4,698,251,219,2,4
+Exp5,1080,474,286,4,10
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,3,1,0,0,0
+Exp2,18,6,8,1,0
+Exp3,154,42,49,1,0
+Exp4,481,300,174,3,3
+Exp5,1150,470,327,5,13
+Exp no.,bubble sort(ms),selection sort(ms),insertion sort
+Exp1,5,3,1,0,0
+Exp2,32,14,7,0,0
+Exp3,198,81,64,1,1
+Exp4,584,186,270,2,2
+Exp5,1056,446,277,5,11

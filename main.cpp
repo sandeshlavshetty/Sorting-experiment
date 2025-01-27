@@ -2,6 +2,14 @@
 using namespace std;
 #include <chrono> // Include the chrono library
 
+void swap(int*a, int*b){
+    int temp =*a;
+    *a = *b;
+    *b = temp;
+}
+
+
+
 void selection_sort(vector<int> &v)
 {
     int n = v.size();
@@ -49,6 +57,85 @@ void bubble_sort(vector<int> &v)
                 swap(v[j], v[j + 1]);
             }
         }
+    }
+}
+
+void heapifyUp(vector<int> &v,int index){
+    cout<<"HeapifyUp"<<endl;
+    while(index!=0 && v[(index-1)/2]<v[index]){
+        swap(&v[(index-1)/2],&v[index]);
+        index = (index-1) / 2;
+    }
+}
+
+void heapifyDown(vector<int> &v,int index,int heapSize){
+    //cout<<"heapifyDown"<<endl;
+    int largest = index;
+    int left = 2*index+1;
+    int right = 2*index+2;
+
+    if(left < heapSize && v[left] > v[largest] )
+        largest = left;
+    if(right < heapSize && v[right] > v[largest])
+        largest = right;
+    if (largest != index){
+        swap(&v[index],&v[largest]);
+        heapifyDown(v,largest,heapSize);
+    }
+}
+auto build_heap(vector<int>&v){
+    //cout<<"build_heap"<<endl;
+    int heapSize= v.size();
+    int last_parent = (heapSize/2)-1;
+    for(int i=last_parent;i>=0;i--)
+            heapifyDown(v,i,heapSize);
+    
+    return v;
+}
+
+void heap_sort(vector<int> &arr){
+    //cout<<"Heap_sort time"<<endl;
+    int count = 0;
+    int heapSize=arr.size();
+    vector<int> v=build_heap(arr);
+    for(int i=heapSize-1; i>0;i--){
+        int x=v[0];
+        v[0]=v[i];
+        heapifyDown(v,0,heapSize);
+        heapSize--;
+        v[i]=x;
+        count++;
+    }
+    // for(int i=0;i<=count;i++){
+    //     printf("%d ",v[i]);
+    // }
+    // printf("\n");
+    return;
+}
+
+int part(vector<int> &v,int li,int ui){
+    int start = li;
+    int end = ui;
+    int pivot = v[start];
+    while(start<end){
+        while(v[start]<=pivot)
+            start++;
+        while(v[end]>pivot)
+            end--;
+        if(start<end)
+            swap(v[start],v[end]);
+    }
+    swap(v[end],v[li]);
+    return end;
+}
+
+
+void quick_sort(vector<int> &v,int li,int ui){
+    int loc;
+    if(li<ui){
+        loc=part(v,li,ui);
+        quick_sort(v,li,loc-1);
+        quick_sort(v,loc+1,ui);
     }
 }
 
@@ -113,6 +200,32 @@ float bubble_time(vector<int> &v)
     return bubbleSortDuration.count();
 }
 
+float heap_time(vector<int> &v)
+{
+
+    // Heap Sort
+    auto heapSortStart = chrono::high_resolution_clock::now();
+    heap_sort(v);
+    auto heapSortEnd = chrono::high_resolution_clock::now();
+    auto heapSortDuration = chrono::duration_cast<chrono::milliseconds>(heapSortEnd - heapSortStart);
+    cout << "Heap sort time: " << heapSortDuration.count() << " milliseconds" << endl;
+    // print_vec(v);
+    return heapSortDuration.count();
+}
+
+float quick_time(vector<int> &v)
+{
+    int n=v.size();
+    // Quick Sort
+    auto quickSortStart = chrono::high_resolution_clock::now();
+    quick_sort(v,0,n);
+    auto quickSortEnd = chrono::high_resolution_clock::now();
+    auto quickSortDuration = chrono::duration_cast<chrono::milliseconds>(quickSortEnd - quickSortStart);
+    cout << "Qucik sort time: " << quickSortDuration.count() << " milliseconds" << endl;
+     //print_vec(v);
+    return quickSortDuration.count();
+}
+
 float selection_time(vector<int> &v)
 {
     // Selection Sort
@@ -152,6 +265,7 @@ int main()
     for (int i = 0; i < 5; i++)
     {
         string filename = "file" + to_string(i + 1) + ".txt";
+        cout<<"Exp for:- "<<filename<<endl;
         vector<int> original_data = numberfetch(filename);
         // 1. bubble sort
         vector<int> v = original_data;
@@ -162,7 +276,13 @@ int main()
         // 3. selection sort
         v = original_data;
         float s_time = selection_time(v);
-        o_data << "Exp" + to_string(i + 1) << "," << b_time << "," << s_time << "," << i_time << endl;
+        // 4. heap sort
+        v = original_data;
+        float h_time = heap_time(v);
+        // 5. quick sort
+        v = original_data;
+        float q_time = quick_time(v);
+        o_data << "Exp" + to_string(i + 1) << "," << b_time << "," << s_time << "," << i_time <<","<<h_time<<","<<q_time<< endl;
     }
     return 0;
 }
